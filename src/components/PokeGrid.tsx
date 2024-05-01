@@ -37,7 +37,7 @@ function PokeGrid(): JSX.Element {
                     <Skeleton height='full' isLoaded={isLoaded} borderRadius="xl">
                       {myPokemon?.some((myPoke) => Number(myPoke.id) === Number(pokemon.id)) &&
                         <Box position="absolute" top="5%" right={{base:"2%", md:"5%"}} >
-                          <Image src={'/newPokeBall.png'} w={{base: 10, md:50}} />
+                          <Image src={'/newPokeball.png'} w={{base: 10, md:50}} />
                         </Box> 
                       }   
                       <PokeCard
