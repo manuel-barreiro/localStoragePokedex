@@ -46,16 +46,14 @@ function PokeGrid(): JSX.Element {
                     </Box>
                   }
                   <PokeCard
-                    pokeCardData={{
-                      name: pokemon.name,
-                      id: pokemon.id,
-                      height: pokemon.height,
-                      weight: pokemon.weight,
-                      stats: pokemon.stats,
-                      types: pokemon.types,
-                      img: pokemon.img,
-                      onLoad: () => handleCardLoad(Number(pokemon.id))
-                    }}
+                      name={pokemon.name}
+                      id={pokemon.id}
+                      height={pokemon.height}
+                      weight={pokemon.weight}
+                      stats={pokemon.stats}
+                      types={pokemon.types}
+                      img={pokemon.img}
+                      onLoad={() => handleCardLoad(Number(pokemon.id))}
                   />
                 </Skeleton>
               </Box>

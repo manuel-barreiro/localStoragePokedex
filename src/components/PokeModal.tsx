@@ -14,7 +14,7 @@ import {
   Progress,
   useToast,
 } from "@chakra-ui/react";
-import CatchedButton from "./CatchAndFreeButton";
+import CatchAndReleaseButton from "./CatchAndReleaseButton";
 import TypeBadge from "./PokeCard/TypeBadge";
 import { PokemonData } from "../../types";
 import { SetStateAction } from "react";
@@ -50,7 +50,7 @@ function PokeModal({ isOpen, onClose, selectedPokemon, myPokemon, setMyPokemon }
                 isClosable: true,
               })
               }}>
-              <CatchedButton purpose="free" />
+              <CatchAndReleaseButton purpose="release" />
             </div> :
             <div onClick={() => {
               handleCatch({setMyPokemon, selectedPokemon, onClose})
@@ -62,7 +62,7 @@ function PokeModal({ isOpen, onClose, selectedPokemon, myPokemon, setMyPokemon }
                 isClosable: true,
               })
               }}>
-              <CatchedButton purpose="catch" />
+              <CatchAndReleaseButton purpose="catch" />
             </div>
             }         
           </ModalHeader>
