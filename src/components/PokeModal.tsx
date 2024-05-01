@@ -18,7 +18,7 @@ import CatchedButton from "./CatchAndFreeButton";
 import TypeBadge from "./PokeCard/TypeBadge";
 import { PokemonData } from "../../types";
 import { SetStateAction } from "react";
-import { useMyPokemon } from "@/hooks/useMyPokemon";
+import { useMyPokemon } from "../../context/MyPokemonContext";
 import { capitalizeString } from "@/lib/utils";
 
 interface PokeModalProps {
@@ -33,7 +33,7 @@ function PokeModal({ isOpen, onClose, selectedPokemon, myPokemon, setMyPokemon }
   const { handleCatch, handleFree } = useMyPokemon()
   const toast = useToast()
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size={{ base: 'full', lg:'lg' }} motionPreset='slideInBottom' >
+    <Modal isOpen={isOpen} onClose={onClose} size={{ base: 'full', lg: 'lg' }} motionPreset='slideInBottom' >
         <ModalOverlay bg='blackAlpha.300' backdropFilter='blur(10px) hue-rotate(90deg)' />
         <ModalContent borderTopRadius={100}>
           

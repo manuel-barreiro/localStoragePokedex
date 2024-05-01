@@ -8,19 +8,18 @@ import {
   Box,
   Skeleton,
   Spinner,
-  Button,
   Image
 } from "@chakra-ui/react";
 import { usePokemonLoader } from '../hooks/usePokemonLoader';
 import { useInViewHandler } from '../hooks/useInViewHandler';
 import { useModal } from '../hooks/useModal';
 import PokeModal from "./PokeModal";
-import { useMyPokemon } from "@/hooks/useMyPokemon";
+import { useMyPokemon } from "../../context/MyPokemonContext";
 
 function PokeGrid(): JSX.Element {
   const [displayedPokemons, isLoaded, loadMore] = usePokemonLoader();
   const [isOpen, onClose, handleViewPokemon, selectedPokemon] = useModal();
-  const {myPokemon, setMyPokemon} = useMyPokemon()
+  const { myPokemon, setMyPokemon } = useMyPokemon()
   const ref = useInViewHandler(loadMore);
 
   return (

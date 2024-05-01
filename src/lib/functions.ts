@@ -41,26 +41,26 @@ export async function loadPokemons(offSet: number): Promise<PokemonData[]> {
   return pokemons
 } 
 
-export async function catchPokemon(pokemon: PokemonData | undefined) {
-  const res = await fetch('/api/myPokemon', 
-    { 
-      method: 'POST',
-      body: JSON.stringify(pokemon)
-    }
-  )
+// export async function catchPokemon(pokemon: PokemonData | undefined) {
+//   const res = await fetch('/api/myPokemon', 
+//     { 
+//       method: 'POST',
+//       body: JSON.stringify(pokemon)
+//     }
+//   )
 
-  const data = await res.json()
-  console.log(data)
-}
+//   const data = await res.json()
+//   console.log(data)
+// }
 
-export async function freePokemon(pokemon: PokemonData | undefined) {
-  const res = await fetch('/api/myPokemon', 
-    { 
-      method: 'DELETE',
-      body: JSON.stringify(pokemon)
-    }
-  )
+// export async function freePokemon(pokemon: PokemonData | undefined) {
+//   const res = await fetch('/api/myPokemon', 
+//     { 
+//       method: 'DELETE',
+//       body: JSON.stringify(pokemon)
+//     }
+//   )
 
-  const data = await res.json()
-  console.log(data)
-}
+//   const data = await res.json()
+//   console.log(data)
+// }

@@ -1,5 +1,5 @@
 'use client'
-import { Flex, Box, HStack, Stack, Text, Image, useColorMode } from "@chakra-ui/react"
+import { Flex, Box, Image, useColorMode } from "@chakra-ui/react"
 import Link from "next/link"
 import ToggleThemeButton from "./ToggleThemeButton"
 

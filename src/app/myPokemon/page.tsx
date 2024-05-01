@@ -2,11 +2,11 @@
 import PokeCard from "@/components/PokeCard"
 import { Box, Flex, SimpleGrid, Skeleton, Image, Link } from "@chakra-ui/react"
 import PokeModal from "@/components/PokeModal"
-import { useMyPokemon } from "@/hooks/useMyPokemon"
+import { useMyPokemon } from "../../../context/MyPokemonContext"
 import { useModal } from "@/hooks/useModal"
 
 export default function MyPokemon() {
-  const {myPokemon, setMyPokemon} = useMyPokemon()
+  const { myPokemon, setMyPokemon } = useMyPokemon()
   const [isOpen, onClose, handleViewPokemon, selectedPokemon] = useModal();
   return (
       <Flex direction="column" justifyContent={{ base: "start", md:"center" }} alignItems="center" minH="100vh" gap={10} py={28} px={4}>

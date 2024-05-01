@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from '../theme/chakra-provider'
+import { ChakraUIProvider } from '../theme/chakra-provider'
 import NavBar from "@/components/NavBar";
 import { Flex } from "@chakra-ui/react";
+import { MyPokemonProvider } from "../../context/MyPokemonContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,12 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} >
-        <Providers>
-          <NavBar />
-          <Flex w="full" justifyContent="center">
-            {children}
-          </Flex>
-        </Providers>
+        <MyPokemonProvider>
+          <ChakraUIProvider>
+            <NavBar />
+            <Flex w="full" justifyContent="center">
+              {children}
+            </Flex>
+          </ChakraUIProvider>
+        </MyPokemonProvider>
       </body>
     </html>
   );

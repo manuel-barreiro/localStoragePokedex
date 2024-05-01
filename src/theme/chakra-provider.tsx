@@ -11,7 +11,7 @@ const config: ThemeConfig = {
 
 const theme = extendTheme({ colors, config });
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function ChakraUIProvider({ children }: { children: React.ReactNode }) {
   return (
   <ChakraProvider theme={theme} toastOptions={{ defaultOptions: { position: 'bottom' } }}>
     <ColorModeScript initialColorMode={theme.config.useSystemColorMode} />
