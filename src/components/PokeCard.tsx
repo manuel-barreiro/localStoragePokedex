@@ -10,7 +10,7 @@ import CardInfo from "./PokeCard/CardInfo";
 import { useEffect, useState } from "react";
 
 interface PokeCardProps extends PokemonData {
-  onLoad: () => void
+  onLoad?: () => void
 }
 function PokeCard({ name,
   id,
@@ -28,7 +28,9 @@ function PokeCard({ name,
     const fetchData = async () => {
       // Simula una carga de datos durante 1.5 segundos
       await new Promise(resolve => setTimeout(resolve, 10));
-      onLoad();
+      if (onLoad) {
+        onLoad();
+      }
     };
     fetchData()
   }, [onLoad]);
