@@ -7,12 +7,28 @@ import {
 import { PokemonData } from "../../types"
 import CardImage from "./PokeCard/CardImage";
 import CardInfo from "./PokeCard/CardInfo";
+import { useEffect, useState } from "react";
 
-
-
-function PokeCard(pokemonData: PokemonData) {
+interface PokeCardProps extends PokemonData {
+  onLoad: () => void
+}
+function PokeCard({ pokeCardData }: { pokeCardData: PokeCardProps}) {
   const { colorMode } = useColorMode()
-  const mainType = pokemonData.types[0].type.name
+  const mainType = pokeCardData.types[0].type.name
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Simula una carga de datos (podrías reemplazar esto con tu lógica real de carga de datos)
+    const fetchData = async () => {
+      // Simula una carga de datos durante 1.5 segundos
+      await new Promise(resolve => setTimeout(resolve, 10));
+      // Marca la tarjeta como cargada
+      setIsLoaded(true);
+      // Notifica al componente padre que los datos se han cargado
+      pokeCardData.onLoad();
+    };
+    fetchData()
+  }, [pokeCardData.onLoad]);
   
   return (
       <Stack
@@ -25,9 +41,9 @@ function PokeCard(pokemonData: PokemonData) {
         bg={colorMode === 'light' ? `${mainType}.cardBg` : 'gray.700'}
         cursor={"pointer"}
       >
-        <CardImage img={pokemonData.img} mainType={mainType} />
+        <CardImage img={pokeCardData.img} mainType={mainType} />
         
-        <CardInfo id={pokemonData.id} name={pokemonData.name} types={pokemonData.types} />
+        <CardInfo id={pokeCardData.id} name={pokeCardData.name} types={pokeCardData.types} />
       </Stack>
   )
 }
