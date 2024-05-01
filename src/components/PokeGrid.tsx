@@ -45,7 +45,7 @@ function PokeGrid(): JSX.Element {
                       <Image src={'/newPokeball.png'} w={{ base: 10, md: 50 }} />
                     </Box>
                   }
-                  <PokeCard
+                   <PokeCard
                       name={pokemon.name}
                       id={pokemon.id}
                       height={pokemon.height}
