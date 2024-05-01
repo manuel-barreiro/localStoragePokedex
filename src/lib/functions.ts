@@ -22,7 +22,7 @@ import { Pokemon, PokemonData } from "../../types"
 // } 
 
 export async function loadPokemons(offSet: number): Promise<PokemonData[]> {
-  const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=12&offset=${offSet}`)
+  const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=24&offset=${offSet}`)
   const results: Pokemon[] = data.results
   const pokemonPromises = results.map(async (pokemon: Pokemon ) => {
     const { data } = await axios.get(pokemon.url)

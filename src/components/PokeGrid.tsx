@@ -22,10 +22,6 @@ function PokeGrid(): JSX.Element {
   const [isOpen, onClose, handleViewPokemon, selectedPokemon] = useModal();
   const { myPokemon, setMyPokemon } = useMyPokemon()
   const ref = useInViewHandler(loadMore);
-  const [loadedCards, setLoadedCards] = useState<number[]>([]);
-  const handleCardLoad = (pokemonId: number) => {
-    setLoadedCards(prev => [...prev, pokemonId]);
-  };
 
   return (
     <Flex alignItems="center" minH="200vh" justifyContent="center">
@@ -39,7 +35,7 @@ function PokeGrid(): JSX.Element {
                 onClick={() => handleViewPokemon(pokemon)}
                 position="relative"
               >
-                <Skeleton height='full' isLoaded={loadedCards.includes(Number(pokemon.id)) || isLoaded} borderRadius="xl">
+                <Skeleton height='full' isLoaded={isLoaded} borderRadius="xl">
                   {myPokemon?.some((myPoke) => Number(myPoke.id) === Number(pokemon.id)) &&
                     <Box position="absolute" top="5%" right={{ base: "2%", md: "5%" }} >
                       <Image src={'/newPokeball.png'} w={{ base: 10, md: 50 }} />
@@ -53,7 +49,6 @@ function PokeGrid(): JSX.Element {
                       stats={pokemon.stats}
                       types={pokemon.types}
                       img={pokemon.img}
-                      onLoad={() => handleCardLoad(Number(pokemon.id))}
                   />
                 </Skeleton>
               </Box>

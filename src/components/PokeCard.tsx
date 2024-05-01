@@ -18,23 +18,10 @@ function PokeCard({ name,
   weight,
   stats,
   types,
-  img,
-  onLoad }: PokeCardProps) {
+  img }: PokemonData) {
   const { colorMode } = useColorMode()
   const mainType = types[0].type.name
 
-  useEffect(() => {
-    // Simula una carga de datos
-    const fetchData = async () => {
-      // Simula una carga de datos durante 1.5 segundos
-      await new Promise(resolve => setTimeout(resolve, 10));
-      if (onLoad) {
-        onLoad();
-      }
-    };
-    fetchData()
-  }, [onLoad]);
-  
   return (
       <Stack
         boxShadow="xl"

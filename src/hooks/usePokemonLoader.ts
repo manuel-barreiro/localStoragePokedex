@@ -22,7 +22,7 @@ export function usePokemonLoader(): [PokemonData[], boolean, () => void] {
   }, [offset]);
 
   function loadMore() {
-    setOffset((prevOffset) => prevOffset + 12);
+    setOffset((prevOffset) => prevOffset + 24);
   }
 
   return [displayedPokemons, isLoaded, loadMore];
